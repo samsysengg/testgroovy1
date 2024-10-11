@@ -1,26 +1,22 @@
 pipeline {
-    agent any 
-
+    agent any
     stages {
         stage('Build') {
             steps {
-                echo 'Building da...'
+                echo 'Building...'
             }
         }
-        stage('Test') {
+        stage('Manual Approval') {
             steps {
-                echo 'Testing...'
+                script {
+                    input message: 'Proceed with Deploy?', ok: 'Yes'
+                }
             }
         }
         stage('Deploy') {
-        steps {
-        script {
-            input message: 'Deploy to production?', ok: 'Proceed', submitter: 'admin'
-            echo 'Deploying...'
-            // Add your deploy steps here
+            steps {
+                echo 'Deploying after approval...'
+            }
         }
     }
 }
-        }
-    }
-
