@@ -13,9 +13,14 @@ pipeline {
             }
         }
         stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-            }
+        steps {
+        script {
+            input message: 'Manual approval required: Deploy to environment?', ok: 'Deploy'
+            echo 'Deploying...'
+            // Add your deploy steps here
+        }
+    }
+}
         }
     }
 }
