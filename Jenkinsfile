@@ -1,6 +1,6 @@
 @Library('Mylib@main') _
 node
 {
-  def greeting = mylibtest.greet('senthil')
+  def greeting = mylibtest.greeting('senthil')
   echo greeting
 }
