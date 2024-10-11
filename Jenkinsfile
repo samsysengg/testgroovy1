@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy') {
         steps {
         script {
-            input message: 'Manual approval required: Deploy to environment?', ok: 'Deploy'
+            input message: 'Deploy to production?', ok: 'Proceed', submitter: 'admin'
             echo 'Deploying...'
             // Add your deploy steps here
         }
