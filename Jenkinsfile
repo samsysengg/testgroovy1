@@ -1,6 +1,21 @@
-@Library('Mylib@main') _
-node
-{
-  def greeting = mylibtest.greeting('senthil')
-  echo greeting
+pipeline {
+    agent any 
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
+    }
 }
